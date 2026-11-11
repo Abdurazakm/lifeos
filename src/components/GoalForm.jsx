@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Plus, Clock, Play, AlertCircle } from 'lucide-react';
-import { LIMITS } from '../lib/contracts';
+import { LIMITS } from '../lib/contracts.js';
 
 export default function GoalForm({
   availableMinutes,
@@ -39,22 +39,22 @@ export default function GoalForm({
   };
 
   return (
-    <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-5 shadow-xl space-y-5">
-      <div className="flex items-center justify-between border-b border-slate-700/60 pb-3">
-        <h2 className="text-base font-bold text-slate-100 flex items-center gap-2 font-mono">
-          <Clock className="w-4 h-4 text-cyan-400" />
+    <div className="bg-[#102A43] border border-[#1f4569] rounded-2xl p-5 shadow-xl space-y-5">
+      <div className="flex items-center justify-between border-b border-[#1f4569]/60 pb-3">
+        <h2 className="text-base font-bold text-[#F8FAFC] flex items-center gap-2 font-mono">
+          <Clock className="w-4 h-4 text-[#38BDF8]" />
           Planning Controls
         </h2>
-        <span className="text-xs text-slate-400 font-mono">
+        <span className="text-xs text-[#94A3B8] font-mono">
           Budget: {availableMinutes}m
         </span>
       </div>
 
       {/* Available Time Budget Control */}
       <div className="space-y-2">
-        <label className="text-xs font-mono uppercase tracking-wider text-slate-300 flex justify-between">
+        <label className="text-xs font-mono uppercase tracking-wider text-[#94A3B8] flex justify-between">
           <span>Available Time Today</span>
-          <span className="text-cyan-400 font-bold">{availableMinutes} minutes</span>
+          <span className="text-[#38BDF8] font-bold">{availableMinutes} minutes</span>
         </label>
         <div className="flex items-center gap-2">
           <input
@@ -64,7 +64,7 @@ export default function GoalForm({
             step={5}
             value={availableMinutes}
             onChange={(e) => onUpdateAvailableMinutes(Number(e.target.value))}
-            className="flex-1 accent-cyan-400 h-2 bg-slate-900 rounded-lg cursor-pointer"
+            className="flex-1 accent-[#38BDF8] h-2 bg-[#0a1a2b] rounded-lg cursor-pointer"
           />
           <input
             type="number"
@@ -72,7 +72,7 @@ export default function GoalForm({
             max={LIMITS.MAX_AVAILABLE_MINUTES}
             value={availableMinutes}
             onChange={(e) => onUpdateAvailableMinutes(Math.max(0, Math.min(240, Number(e.target.value) || 0)))}
-            className="w-16 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono text-center text-slate-100 focus:outline-none focus:border-cyan-400"
+            className="w-16 bg-[#0a1a2b] border border-[#1f4569] rounded-lg px-2.5 py-1 text-xs font-mono text-center text-[#F8FAFC] focus:outline-none focus:border-[#38BDF8]"
           />
         </div>
         {/* Quick Budget Presets */}
@@ -84,8 +84,8 @@ export default function GoalForm({
               onClick={() => onUpdateAvailableMinutes(preset)}
               className={`px-2.5 py-1 rounded text-[11px] font-mono transition cursor-pointer ${
                 availableMinutes === preset
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold'
-                  : 'bg-slate-900/60 text-slate-400 hover:text-slate-200 border border-slate-700/50'
+                  ? 'bg-[#38BDF8]/20 text-[#38BDF8] border border-[#38BDF8]/40 font-bold'
+                  : 'bg-[#0a1a2b] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#1f4569]/50'
               }`}
             >
               {preset}m
@@ -96,12 +96,12 @@ export default function GoalForm({
 
       {/* Add New Mission Input */}
       {canAddMore ? (
-        <form onSubmit={handleSubmit} className="space-y-3 pt-2 border-t border-slate-700/60">
+        <form onSubmit={handleSubmit} className="space-y-3 pt-2 border-t border-[#1f4569]/60">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono text-slate-300 uppercase tracking-wider">
+            <span className="text-xs font-mono text-[#F8FAFC] uppercase tracking-wider">
               Add Actionable Mission
             </span>
-            <span className="text-[11px] text-slate-500 font-mono">
+            <span className="text-[11px] text-[#94A3B8] font-mono">
               (up to 3-6 missions)
             </span>
           </div>
@@ -120,27 +120,27 @@ export default function GoalForm({
               value={title}
               maxLength={LIMITS.MAX_TITLE_LENGTH}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition"
+              className="w-full bg-[#0a1a2b] border border-[#1f4569] rounded-xl px-3.5 py-2 text-sm text-[#F8FAFC] placeholder-[#94A3B8]/60 focus:outline-none focus:border-[#38BDF8] transition"
             />
 
             <div className="flex gap-2">
-              <div className="flex-1 flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
+              <div className="flex-1 flex items-center gap-1.5 bg-[#0a1a2b] border border-[#1f4569] rounded-xl px-3 py-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#38BDF8]" />
                 <input
                   type="number"
                   min={LIMITS.MIN_TASK_MINUTES}
                   max={LIMITS.MAX_TASK_MINUTES}
                   value={minutes}
                   onChange={(e) => setMinutes(e.target.value)}
-                  className="w-12 bg-transparent text-xs font-mono text-slate-100 focus:outline-none"
+                  className="w-12 bg-transparent text-xs font-mono text-[#F8FAFC] focus:outline-none"
                 />
-                <span className="text-xs text-slate-400 font-mono">mins</span>
+                <span className="text-xs text-[#94A3B8] font-mono">mins</span>
               </div>
 
               <select
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
-                className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-cyan-400"
+                className="bg-[#0a1a2b] border border-[#1f4569] rounded-xl px-3 py-1.5 text-xs font-mono text-[#F8FAFC] focus:outline-none focus:border-[#38BDF8]"
               >
                 <option value="high">Priority: High</option>
                 <option value="medium">Priority: Medium</option>
@@ -150,16 +150,16 @@ export default function GoalForm({
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-white text-xs font-medium transition cursor-pointer disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#143250] hover:bg-[#1a3f65] text-[#F8FAFC] text-xs font-medium border border-[#1f4569] transition cursor-pointer disabled:opacity-50"
               >
-                <Plus className="w-3.5 h-3.5" />
+                <Plus className="w-3.5 h-3.5 text-[#38BDF8]" />
                 <span>Add</span>
               </button>
             </div>
           </div>
         </form>
       ) : (
-        <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/60 text-xs text-slate-400 font-mono text-center">
+        <div className="p-3 rounded-xl bg-[#0a1a2b] border border-[#1f4569] text-xs text-[#94A3B8] font-mono text-center">
           Maximum of {LIMITS.MAX_TASKS} missions reached for focused execution.
         </div>
       )}
@@ -169,9 +169,9 @@ export default function GoalForm({
         <button
           onClick={onPlanDay}
           disabled={isLoading}
-          className="w-full py-3 px-4 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition cursor-pointer disabled:opacity-50"
+          className="w-full py-3 px-4 rounded-xl bg-[#38BDF8] hover:bg-[#0284c7] text-[#102A43] font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#38BDF8]/20 transition cursor-pointer disabled:opacity-50"
         >
-          <Play className="w-4 h-4 fill-slate-950" />
+          <Play className="w-4 h-4 fill-[#102A43]" />
           <span>{isLoading ? 'Making room for what matters…' : 'Plan my day'}</span>
         </button>
       </div>

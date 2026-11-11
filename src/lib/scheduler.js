@@ -3,7 +3,7 @@
  * Adheres strictly to Section 9 of LifeOS_Lite_React_MVP_Plan.md
  */
 
-import { PRIORITY_WEIGHTS } from './contracts';
+import { PRIORITY_WEIGHTS } from './contracts.js';
 
 /**
  * Pure scheduling function usable by both browser and server.

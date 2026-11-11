@@ -1,5 +1,11 @@
 /**
  * Lightweight Zero-Dependency Canvas Confetti
+ * Styled with LifeOS theme colors:
+ * - Sky Blue #38BDF8
+ * - Sunrise Gold #FBBF24
+ * - Teal #2DD4BF
+ * - Soft White #F8FAFC
+ * - Deep Ocean #102A43
  */
 export function fireConfetti() {
   const canvas = document.createElement('canvas');
@@ -17,17 +23,17 @@ export function fireConfetti() {
   canvas.width = window.innerWidth * dpr;
   canvas.height = window.innerHeight * dpr;
 
-  const colors = ['#06b6d4', '#6366f1', '#10b981', '#f59e0b', '#ec4899', '#38bdf8'];
+  const colors = ['#38BDF8', '#FBBF24', '#2DD4BF', '#F8FAFC', '#38BDF8'];
   const particles = [];
-  const particleCount = 80;
+  const particleCount = 75;
 
   for (let i = 0; i < particleCount; i++) {
     particles.push({
       x: canvas.width / 2,
-      y: canvas.height * 0.4,
-      vx: (Math.random() - 0.5) * 18 * dpr,
-      vy: (Math.random() - 0.7) * 20 * dpr,
-      size: (Math.random() * 8 + 4) * dpr,
+      y: canvas.height * 0.45,
+      vx: (Math.random() - 0.5) * 16 * dpr,
+      vy: (Math.random() - 0.7) * 18 * dpr,
+      size: (Math.random() * 7 + 4) * dpr,
       color: colors[Math.floor(Math.random() * colors.length)],
       rotation: Math.random() * 360,
       vRotation: (Math.random() - 0.5) * 12,
@@ -48,7 +54,7 @@ export function fireConfetti() {
       p.x += p.vx;
       p.y += p.vy;
       p.rotation += p.vRotation;
-      p.alpha -= 0.012;
+      p.alpha -= 0.014;
 
       if (p.alpha > 0) {
         alive = true;
@@ -62,7 +68,7 @@ export function fireConfetti() {
       }
     });
 
-    if (alive && Date.now() - startTime < 3500) {
+    if (alive && Date.now() - startTime < 3000) {
       animationFrame = requestAnimationFrame(render);
     } else {
       cancelAnimationFrame(animationFrame);

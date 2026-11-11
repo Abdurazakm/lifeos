@@ -8,7 +8,7 @@ import PlanPanel from './components/PlanPanel';
 import RecoveryPanel from './components/RecoveryPanel';
 import SavedForLater from './components/SavedForLater';
 import { fireConfetti } from './utils/confetti';
-import { Sparkles, CheckCircle2, AlertCircle, Info } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Info } from 'lucide-react';
 
 export default function App() {
   const {
@@ -54,7 +54,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col antialiased selection:bg-cyan-400 selection:text-slate-950 font-sans">
+    <div className="min-h-screen bg-[#0a1a2b] text-[#F8FAFC] flex flex-col antialiased selection:bg-[#38BDF8] selection:text-[#102A43] font-sans">
       {/* Top Navigation Header */}
       <Header
         isSampleDay={isSampleDay}
@@ -70,19 +70,19 @@ export default function App() {
           <div
             className={`p-3.5 rounded-xl border flex items-center justify-between gap-3 text-xs font-mono transition-all duration-300 animate-slideDown ${
               statusMessage.type === 'success'
-                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                ? 'bg-[#2DD4BF]/15 border-[#2DD4BF]/30 text-[#2DD4BF]'
                 : statusMessage.type === 'warning'
-                ? 'bg-amber-500/10 border-amber-500/30 text-amber-300'
-                : 'bg-cyan-500/10 border-cyan-500/30 text-cyan-300'
+                ? 'bg-[#FBBF24]/15 border-[#FBBF24]/30 text-[#FBBF24]'
+                : 'bg-[#38BDF8]/15 border-[#38BDF8]/30 text-[#38BDF8]'
             }`}
           >
             <div className="flex items-center gap-2">
               {statusMessage.type === 'success' ? (
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#2DD4BF] shrink-0" />
               ) : statusMessage.type === 'warning' ? (
-                <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                <AlertCircle className="w-4 h-4 text-[#FBBF24] shrink-0" />
               ) : (
-                <Info className="w-4 h-4 text-cyan-400 shrink-0" />
+                <Info className="w-4 h-4 text-[#38BDF8] shrink-0" />
               )}
               <span>{statusMessage.text}</span>
             </div>
@@ -146,7 +146,7 @@ export default function App() {
       </main>
 
       {/* Footer Note */}
-      <footer className="border-t border-slate-900 py-6 text-center text-xs text-slate-500 font-mono">
+      <footer className="border-t border-[#1f4569]/60 py-6 text-center text-xs text-[#94A3B8] font-mono">
         LifeOS Lite • "Life doesn't follow your schedule. Your schedule should adapt to your life."
       </footer>
     </div>
